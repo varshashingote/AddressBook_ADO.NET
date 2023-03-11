@@ -11,9 +11,8 @@ namespace AddressBookADO.NET
         public static void Main(string[] args)
         {
             AddressBook addressBook = new AddressBook();
-            addressBook.First_Name = "Suraj";
-            addressBook.Start_Date = 2018;
-            AddressRepository.UpdateDate(addressBook);
+            addressBook.City = "pune";
+            AddressRepository.RetriveCity(addressBook);
             Console.ReadLine();
         }
     }

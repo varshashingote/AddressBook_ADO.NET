@@ -113,10 +113,46 @@ namespace AddressBookADO.NET
 
             finally
             {
+                Console.WriteLine("okk Done");
+            }
+
+        }
+
+
+        public static void RetriveCity(AddressBook addressBook)
+        {
+            try
+            {
+
+
+                sqlConnection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand("dbo.spRetriveByCity", sqlConnection);
+                command.CommandType = CommandType.StoredProcedure;
+                sqlConnection.Open();
+
+
+                command.Parameters.AddWithValue("@City", addressBook.City);
+                int num = command.ExecuteNonQuery();
+                if (num != 0)
+
+                    Console.WriteLine("Employee Updated Successfully");
+                else
+                    Console.WriteLine("Something went Wrong");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
+            finally
+            {
                 Console.WriteLine("jesflkpsd");
             }
 
         }
+
+
 
     }
 }
