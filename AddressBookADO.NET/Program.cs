@@ -11,8 +11,11 @@ namespace AddressBookADO.NET
         public static void Main(string[] args)
         {
             AddressBook addressBook = new AddressBook();
+            addressBook.First_Name = "vaibhavi";
+            addressBook.Last_Name = "ghare";
+            addressBook.Phone_Number = 2435623;
             addressBook.City = "pune";
-            AddressRepository.RetriveCity(addressBook);
+            AddressRepository.AddEmployee(addressBook);
             Console.ReadLine();
         }
     }

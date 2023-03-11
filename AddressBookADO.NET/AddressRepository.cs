@@ -152,6 +152,40 @@ namespace AddressBookADO.NET
 
         }
 
+        public static void AddEmployee(AddressBook addressBook)
+        {
+            try
+            {
+                sqlConnection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand("dbo.spAddNewEmployee", sqlConnection);
+                command.CommandType = CommandType.StoredProcedure;
+                sqlConnection.Open();
+                command.Parameters.AddWithValue("@First_Name", addressBook.First_Name);
+
+                command.Parameters.AddWithValue("@Last_Name",addressBook.Last_Name);
+
+                command.Parameters.AddWithValue("@Phone_Number",addressBook.Phone_Number);
+                command.Parameters.AddWithValue("@City", addressBook.City);
+                int num = command.ExecuteNonQuery();
+                if (num != 0)
+
+                    Console.WriteLine("Employee Added Successfully");
+                else
+                    Console.WriteLine("Something went Wrong");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
+            finally
+            {
+                Console.WriteLine("vjjflo");
+            }
+
+        }
+
 
 
     }
