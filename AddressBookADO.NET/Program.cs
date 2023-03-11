@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace AddressBookADO.NET
 {
-    public class Program
+     public class Program
     {
         public static void Main(string[] args)
         {
-            //AddressBook addressBook = new AddressBook();
-             AddressRepository address = new AddressRepository();
-            AddressRepository.GetAllEmployees();
-
-
+            AddressBook addressBook = new AddressBook();
+            addressBook.First_Name = "Varsha";
+            addressBook.City = "Pune";
+            AddressRepository.UpdateEmployee(addressBook);
             Console.ReadLine();
         }
     }

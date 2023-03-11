@@ -21,6 +21,7 @@ namespace AddressBookADO.NET
         public string E_Mail { get; set; }
          public string AddressBook_Name { get; set; }
         public string AddressBook_Type { get; set; }
+        public int Start_Date { get; set; }
       
 
     }

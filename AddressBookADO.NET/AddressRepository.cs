@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
@@ -51,9 +52,46 @@ namespace AddressBookADO.NET
             }
 
         }
-    }
 
+        public static void UpdateEmployee(AddressBook addressBook)
+        {
+            try
+            {
+
+
+                sqlConnection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand("dbo.spUpdateEntries", sqlConnection);
+                command.CommandType = CommandType.StoredProcedure;
+                sqlConnection.Open();
+                command.Parameters.AddWithValue("@First_Name", addressBook.First_Name);
+
+                command.Parameters.AddWithValue("@City", addressBook.City);
+                int num = command.ExecuteNonQuery();
+                if (num != 0)
+
+                    Console.WriteLine("Employee Updated Successfully");
+                else
+                    Console.WriteLine("Something went Wrong");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+
+            }
+
+            finally
+            {
+                Console.WriteLine("jesflkpsd");
+            }
+
+        }
+    }
 }
+
+
+
+
+
 
 
 
